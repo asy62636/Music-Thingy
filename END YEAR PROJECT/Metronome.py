@@ -1,7 +1,6 @@
 import pygame
 import sys
 import time
-import tkinter
 
 pygame.init()
 white = (255, 255, 255)
