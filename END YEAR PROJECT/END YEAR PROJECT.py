@@ -1,3 +1,4 @@
+#please make sure u read and not delete comments.all working codelines in "##" and all comments in "#"
 import pygame
 import sys
 pygame.init()
@@ -37,7 +38,7 @@ class button():
             if curpos[1] > self.ypos and curpos[1] < self.ypos + self.bheight:
                 return True
         return False
-    
+ #button class declared  
 def winredraw(item):
     item.bdraw(screen)
 
@@ -53,10 +54,6 @@ bandsrect = bands.get_rect()
 screen.fill(black)
 ##startbutton = button((27, 44, 54), (67, 85, 99), 0, 550, 180, 90, 'START') #initialising start button
 
-yy = pygame.image.load("Yashyash.png")
-suzan = pygame.image.load("Suzan.png")
-scamuel = pygame.image.load("Scamuel.png")
-mishra = pygame.image.load("Mishra.png")
 
 while True:
     for evt in pygame.event.get():
@@ -68,17 +65,11 @@ while True:
         curpos = pygame.mouse.get_pos()
         if evt.type == pygame.MOUSEMOTION:
             screen.blit(bands, bandsrect)
-            opfont = pygame.font.SysFont('impact', 72)
-            optext = opfont.render('PRESENTED TO YOU BY', 2, white)
-            screen.blit(optext, (50, 150))
-            screen.blit(suzan, (0, 300))
 ##            pygame.mixer.music.load("Pistol Shot.mp3")
 ##            pygame.mixer.music.play(0)
-            screen.blit(mishra, (370, 300))
-            screen.blit(yy, (740, 300))
-            screen.blit(scamuel, (1110, 300))
-            
-            
+ #all working codelines in "##" and all comments in "#"         
+            # after opening screen
+#interaction begins. Menu screen
 ##            screen.blit(drum1, drum1rect)
 ##            winredraw()
 ##            if startbutton.isOn(curpos):
