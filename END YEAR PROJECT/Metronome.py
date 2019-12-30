@@ -8,6 +8,7 @@ black = (0, 0, 0)
 screen = pygame.display.set_mode((1120, 630))
 
 class button():
+    
     def __init__(self, colour, textcolour, xpos, ypos, bwidth, bheight, text= ''):
         self.colour = colour
         self.textcolour = textcolour
@@ -17,20 +18,60 @@ class button():
         self.bwidth = bwidth
         self.text = text
     #button initialisation
+    
     def bdraw(self, win, outline=None):
         if outline:
             pygame.draw.rect(screen, outline, (self.xpos-2, self.ypos-2, self.bwidth+4, self.bheight+4),0)
             #if desired, outline can be drawn
         pygame.draw.rect(screen, self.colour, (self.xpos, self.ypos, self.bwidth, self.bheight), 0)
+        
         if self.text != '':
             font = pygame.font.SysFont('comicsans', 40,)
             text = font.render(self.text, 1, self.textcolour)
             screen.blit(text, (self.xpos + (self.bwidth/2 - text.get_width()/2), self.ypos + (self.bheight/2 - text.get_height()/2)))
+    
     def isOn(self, curpos):
         if curpos[0] > self.xpos and curpos[0] < self.xpos + self.bwidth:
             if curpos[1] > self.ypos and curpos[1] < self.ypos + self.bheight:
                 return True
         return False
+    
+FONT = pygame.font.Font(None, 32)
+
+class InputBox:
+
+    def __init__(self, tx, ty, tw, th, text=''):
+        self.rect = pg.Rect(tx, ty, tw, th)
+        self.color = ((49, 129, 40))
+        self.text = text
+        self.txt_surface = FONT.render(text, True, self.color)
+        self.active = False
+
+    def eventhandle(self, event):
+        if event.type == pygame.MOUSEBUTTONDOWN:
+            if self.rect.collidepoint(event.pos):
+                self.active = not self.active
+            else:
+                self.active = False
+            self.color = COLOR_ACTIVE if self.active else COLOR_INACTIVE
+        if event.type == pygame.KEYDOWN:
+            if self.active:
+                if event.key == pygame.K_RETURN:
+                    print(self.text)
+                    self.text = ''
+                elif event.key == pygame.K_BACKSPACE:
+                    self.text = self.text[:-1]
+                else:
+                    self.text += event.unicode
+                self.txt_surface = FONT.render(self.text, True, self.color)
+
+    def update(self):
+        width = max(200, self.txt_surface.get_width()+10)
+        self.rect.tw = width
+
+    def draw(self, screen):
+        screen.blit(self.txt_surface, (self.rect.x+5, self.rect.y+5))
+        pygame.draw.rect(screen, self.color, self.rect, 2)
 
 beat44 = ['1', '2', '3', '4']
 beat34 = ['1', '2', '3']
