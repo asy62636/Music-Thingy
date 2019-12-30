@@ -41,6 +41,7 @@ button24 = button((81, 81, 81), black, 1000, 310, 100, 50, '2/4')
 button34 = button((81, 81, 81), black, 1000, 370, 100, 50, '3/4')
 button44 = button((81, 81, 81), black, 1000, 430, 100, 50, '4/4')
 
+
 run = True
 while run:
     screen.fill(black)
@@ -49,11 +50,12 @@ while run:
     button24.bdraw(screen)
     button34.bdraw(screen)
     button44.bdraw(screen)
+    disfont = pygame.font.SysFont('timesnewroman', 72)
     for event in pygame.event.get():
         #quitting
         if event.type == pygame.QUIT:
+            pygame.display.quit()
             sys.exit()
-            pygame.display.exit()
             quit()
             run = False
         #mouse over the buttons
@@ -93,6 +95,12 @@ while run:
                 button14.textcolour = (white)
                 button14.colour = (65, 65, 65)
                 print ('1/4 timing chosen')
+                for i in beat14:
+                    distext = disfont.render(i, 2, white)
+                    screen.blit(distext, (200, 200))
+                    pygame.display.update()
+                    pygame.time.delay(3000)
+                pygame.display.update()
             else:
                 button14.textcolour = (black)
                 button14.colour = (81, 81, 81)
