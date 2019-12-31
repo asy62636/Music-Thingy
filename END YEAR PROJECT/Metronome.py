@@ -39,7 +39,7 @@ FONT = pygame.font.Font(None, 32)
 class InputBox:
 
     def __init__(self, tx, ty, tw, th, text=''):
-        self.rect = pg.Rect(tx, ty, tw, th)
+        self.rect = pygame.draw.rect(tx, ty, tw, th)
         self.color = ((49, 129, 40))
         self.text = text
         self.txt_surface = FONT.render(text, True, self.color)
