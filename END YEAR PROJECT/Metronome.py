@@ -95,36 +95,6 @@ while run:
             sys.exit()
             quit()
             run = False
-        #mouse over the buttons
-        if event.type == pygame.MOUSEMOTION:
-            #1/4 button
-            if button14.isOn(curpos):
-                button14.textcolour = (white)
-                button14.colour = (65, 65, 65)
-            else:
-                button14.textcolour = (black)
-                button14.colour = (81, 81, 81)
-            #2/4 button
-            if button24.isOn(curpos):
-                button24.textcolour = (white)
-                button24.colour = (65, 65, 65)
-            else:
-                button24.textcolour = (black)
-                button24.colour = (81, 81, 81)
-            #3/4 button
-            if button34.isOn(curpos):
-                button34.textcolour = (white)
-                button34.colour = (65, 65, 65)
-            else:
-                button34.textcolour = (black)
-                button34.colour = (81, 81, 81)
-            #4/4 button
-            if button44.isOn(curpos):
-                button44.textcolour = (white)
-                button44.colour = (65, 65, 65)
-            else:
-                button44.textcolour = (black)
-                button14.colour = (81, 81, 81)
         #event of clicking
         if event.type == pygame.MOUSEBUTTONDOWN:
             #1/4 button
