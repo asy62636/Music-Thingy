@@ -1,6 +1,4 @@
-import pygame
-import sys
-import time
+import pygame, sys, time
 
 pygame.init()
 white = (255, 255, 255)
