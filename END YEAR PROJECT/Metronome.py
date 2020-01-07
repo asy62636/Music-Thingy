@@ -2,6 +2,8 @@ import pygame, sys, time
 
 pygame.init()
 screen = pygame.display.set_mode((1120, 630))
+colour = ()
+textcolour = ()
 
 class button():
     
@@ -36,10 +38,10 @@ FONT = pygame.font.Font(None, 32)
 
 class InputBox:
 
-    def __init__(self, tx, ty, tw, th, text=''):
+    def __init__(self, tx, ty, tw, th, ttext=''):
         self.rect = pygame.draw.rect(tx, ty, tw, th)
         self.color = ((49, 129, 40))
-        self.text = text
+        self.ttext = ttext
         self.txt_surface = FONT.render(text, True, self.color)
         self.active = False
 
