@@ -105,9 +105,8 @@ while run:
                 button14.colour = (65, 65, 65)
                 print ('1/4 timing chosen')
                 for i in beat14:
-                    distext = disfont.render(i, 2, white)
-                    screen.blit(distext, (200, 200))
-                    pygame.display.update()
+                    pygame.mixer.music.load('tick.mp3')
+                    pygame.mixer.music.play(1)
                     pygame.time.delay(3000)
                 pygame.display.update()
             else:
@@ -117,6 +116,11 @@ while run:
             if button24.isOn(curpos):
                 button24.textcolour = (white)
                 button24.colour = (65, 65, 65)
+                for i in beat14:
+                    pygame.mixer.music.load('tick.mp3')
+                    pygame.mixer.music.play(1)
+                    pygame.time.delay(3000)
+                pygame.display.update()
                 print ('2/4 timing chosen')
             else:
                 button24.textcolour = (black)
@@ -126,6 +130,11 @@ while run:
                 button34.textcolour = (white)
                 button34.colour = (65, 65, 65)
                 print ('3/4 timing chosen')
+                for i in beat14:
+                    pygame.mixer.music.load('tick.mp3')
+                    pygame.mixer.music.play(1)
+                    pygame.time.delay(3000)
+                pygame.display.update()
             else:
                 button34.textcolour = (black)
                 button34.colour = (81, 81, 81)
@@ -134,6 +143,11 @@ while run:
                 button44.textcolour = (white)
                 button44.colour = (65, 65, 65)
                 print ('4/4 timing chosen')
+                for i in beat14:
+                    pygame.mixer.music.load('tick.mp3')
+                    pygame.mixer.music.play(1)
+                    pygame.time.delay(3000)
+                pygame.display.update()
             else:
                 button44.textcolour = (black)
                 button14.colour = (81, 81, 81)
